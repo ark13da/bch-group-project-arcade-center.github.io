@@ -17,20 +17,15 @@ let speedGameScoreArray = speedGameScoreString.sort((a, b) => {
     return b.gameScore - a.gameScore;
 });
 
-/*
-// display scores as list
-let speedGameScoreList = [];
-speedGameScoreArray.forEach(i => {
-    speedGameScoreList.push(`<li> ${i.gameScore} by ${i.playerName} on ${i.gameDate.slice(0,10)} </li>`)
-})
-
-document.getElementById("speedGameList").innerHTML = speedGameScoreList.join('');
-*/
-
 tableMaker(speedGameScoreArray, 'speedGameTable');
 
 //cyclone game fetching from localStorage and displaying in leaderboard
+let cycloneGameScoreString = JSON.parse(indexLocalStorage.getItem("cycloneGame"));
+let cycloneGameScoreArray = cycloneGameScoreString.sort((a, b) => {
+    return b.gameScore - a.gameScore;
+});
 
+tableMaker(cycloneGameScoreArray, 'cycloneGameTable');
 
 //Jackpot game fetching from localStorage and displaying in leaderboard
 
